@@ -35,6 +35,53 @@ class NeighborHood(models.Model):
 
 
 
+class Post(models.Model):
+  title = models.CharField(max_length=144)
+  post = models.TextField()
+  image = CloudinaryField('image')
+  created_at = models.DateTimeField(auto_now_add=True)
+  updated_at = models.DateTimeField(auto_now=True)
+  user = models.ForeignKey(User,on_delete=CASCADE,related_name='poster')
+  neighborhood = models.ForeignKey(NeighborHood,on_delete=CASCADE,related_name='neighborhood_post')
+
+  def save_post(self):
+    self.save()
+
+  def delete_post(self):
+    self.delete()
+
+  @classmethod
+  def show_posts(cls):
+    posts = cls.objects.all()
+    return posts
+
+  def __str__(self):
+    return self.title
+
+
+class Business(models.Model):
+  name =models.CharField(max_length=60)
+  description = models.TextField()
+  image = CloudinaryField('image')
+  created_at = models.DateTimeField(auto_now_add=True)
+  updated_at = models.DateTimeField(auto_now=True)
+  neighborhood = models.ForeignKey(NeighborHood,on_delete=CASCADE,related_name='business')
+  user = models.ForeignKey(User,on_delete=CASCADE)
+  email = models.EmailField()
+
+  def create_business(self):
+    self.save()
+
+  def delete_business(self):
+    self.delete()
+
+  @classmethod
+  def search_businesses(cls, business):
+    return cls.objects.filter(name__icontains=business).all()
+
+  def __str__(self):
+    return self.name
+
 
 # Create your models here.
 class Profile(models.Model):
