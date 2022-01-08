@@ -7,6 +7,7 @@ from cloudinary.models import CloudinaryField
 
 
 
+
 class NeighborHood(models.Model):
   name = models.CharField(max_length=60)
   location = models.CharField(max_length=60)
@@ -33,7 +34,6 @@ class NeighborHood(models.Model):
     return self.name
 
 
-# Create your models here.
 
 
 # Create your models here.
