@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'neighborapp',
+    'bootstrap4',
+    'cloudinary',
+    'cloudinary_storage'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
