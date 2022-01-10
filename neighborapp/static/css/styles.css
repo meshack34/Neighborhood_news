@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Yatra+One&family=Zen+Tokyo+Zoo&display=swap");
+.header {
+  background-color: #0be60b;
+  border: 20px solid red;
+}
+nav {
+  width: 100% !important;
+  background-color: rgb(80, 52, 240) !important;
+}
+.banner-items {
+  font-weight: 900;
+  text-shadow: white 0px 0px 10px;
+  color: #03b42f;
+  font-size: 20px;
+  text-shadow: 0.07em 0 rgb(7, 29, 228), 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
+}
+.banner {
+  width: 100%;
+
+  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGa4Fm1NmSGLPtRRWn6_08BlCKjnbpb3SB_g&usqp=CAU");
+   */
+  margin-right: 0 !important;
+  background-size: cover;
+  height: 60vh;
+  justify-content: center;
+}
+body {
+  background-color: #d4d5e0;
+}
+.home {
+  background-image: url('https://res.cloudinary.com/dbos9xidr/image/upload/v1627248828/f8wiq1mbz56lsl8sxyyh.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.profilepic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  align-items: center;
+  
+}
+.text-muted {
+  color: #a1bfa0 !important;
+}
+.forms,
+.panel {
+  padding: 20px;
+  background-color: rgb(14, 58, 52) !important;
+  border-radius: 5px;
+  color: #fed401;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+
+}
+.nav-link {
+  color: rgb(235, 198, 198) !important;
+  background-color: rgb(14, 226, 198);
+}
+.users {
+  background-color: rgb(14, 58, 52);
+  color: white;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.neighborhood {
+  margin-bottom: 2rem;
+  background-color: #a1bfa0;
+  padding: 2rem;
+}
+
+
+.my-neighborhood {
+  color: #fe1201;
+  border: 10px solid #0fe0b3;
+  padding: 5px;
+}
+.navbar {
+  background-color: rgb(14, 226, 198);
+  color: rgb(64, 109, 161);
+
+}
+@media screen and (max-width: 1084px) {
+  .form-inline > .form-control,
+  .btn {
+    margin-bottom: 1rem !important;
+  }
+  .my-neighborhood {
+    display: none;
+  }
+}

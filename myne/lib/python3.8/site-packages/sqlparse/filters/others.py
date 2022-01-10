@@ -22,10 +22,7 @@ class StripCommentsFilter:
         def _get_insert_token(token):
             """Returns either a whitespace or the line breaks from token."""
             # See issue484 why line breaks should be preserved.
-            # Note: The actual value for a line break is replaced by \n
-            # in SerializerUnicode which will be executed in the
-            # postprocessing state.
-            m = re.search(r'((\r|\n)+) *$', token.value)
+            m = re.search(r'((\r\n|\r|\n)+) *$', token.value)
             if m is not None:
                 return sql.Token(T.Whitespace.Newline, m.groups()[0])
             else:
