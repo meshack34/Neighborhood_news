@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-md navbar-dark">
+  <a href="{% url 'home' %}" class="navbar-brand">NEIGHBORHOOD</a>
+  <button
+    type="button"
+    class="navbar-toggler"
+    data-toggle="collapse"
+    data-target="#navbarCollapse"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  {% if request.user.profile.neighborhood %}
+  <a
+    class="my-neighborhood"
+    href="{% url 'neighborhood' user.profile.neighborhood.id %}"
+    >{{user.profile.neighborhood.name}}</a
+  >
+  {% endif %}
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <a
+      class="nav-item nav-link"
+      style="border: 2px solid green; margin-left: 2px"
+      href="{% url 'create_business' neighborhood.id %}"
+      >Create Business</a
+    >
+    <a
+      class="nav-item nav-link"
+      style="border: 2px solid green; margin-left: 2px"
+      href="{% url 'create_post' neighborhood.id %}"
+      >Create Post</a
+    >
+    <form class="form-inline ml-auto" role="search" action="{% url 'search' %}">
+      <input
+        type="text"
+        class="form-control mr-sm-2"
+        placeholder="Search business"
+        name="name"
+      />
+      <button type="submit" class="btn btn-outline-success">Submit</button>
+    </form>
+    {% if user.is_authenticated %} {% if current_user.profile.profilepic.url %}
+    <a href="{% url 'profile'%}"
+      ><img
+        class="profilepic"
+        src="{{ current_user.profile.profilepic.url }}"
+        alt=""
+    /></a>
+    {% else %}
+    <a href="{% url 'profile'%}"
+      ><img
+        class="profilepic"
+        src="https://res.cloudinary.com/dbos9xidr/image/upload/v1626854682/zvtfufhexa8lqqqgcdt3.png"
+        alt=""
+    /></a>
+    {% endif %}
+    <a class="nav-item nav-link" href="/logout">Logout</a>
+
+    {% else %}
+
+    <a class="nav-item nav-link" href="{% url 'register' %}">Signup</a>
+
+    <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+
+    {% endif %}
+  </div>
+</nav>

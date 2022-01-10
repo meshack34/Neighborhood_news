@@ -1,0 +1,72 @@
+{% extends "base_neighbor.html" %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container-fluid banner">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 text-center banner-items">
+        <h2>Welcome to {{neighborhood.name}} Neighborhood</h2>
+        <p>Neighborhood Location: {{neighborhood.location}}</p>
+        <p>Occupants Population: {{neighborhood.population}}</p>
+        <p>Police Telephone no: {{neighborhood.police_contact}}</p>
+        <p>Hospital Telephone no: {{neighborhood.hospital_contact}}</p>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <h2 class="text-center header">Businesses</h2>
+      {% if business %}
+      {% for business in business %}
+      <div class="business">
+        <h3>{{business.name}}</h3>
+        <p>{{business.description}}</p>
+        <img src="{{business.image.url}}" class="img-thumbnail " alt="">
+        <p>Owner: {{business.user.profile.first_name}} {{business.user.profile.last_name}} </p>
+        <P>Email Address: {{business.email}}</P>
+        {% if business.user.username == current_user.username %}
+        <div class="">
+          <a href="{% url 'update_business' business.id %}" class="btn btn-success">Update</a>
+          <a href="{% url 'delete_business' business.id %}" class="btn  btn-danger">Delete</a>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+    <div class="col-md-6">
+      <h2 class="text-center header">Posts</h2>
+      {% if posts %}
+      {% for post in posts %}
+      <div class="business">
+        <h3>{{post.title}}</h3>
+        <p>{{post.post}}</p>
+        <img src="{{post.image.url}}" class="img-thumbnail " width="100%" alt="">
+        <p>Posted by {{post.user.profile.first_name}} {{business.user.profile.last_name}}  on {{post.created_at|date}}</p>
+        <p>Last updated on {{post.updated_at}}</p>
+        {% if post.user.username == current_user.username %}
+        <div class="">
+          <a href="{% url 'update_post' post.id %}" class="btn btn-success">Update</a>
+          <a href="{% url 'delete_post' post.id %}" class="btn  btn-danger">Delete</a>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+    <div class="col-md-3">
+      <h2 class="text-center header">People</h2>
+      <p>View the profiles of people alson in the neighborhood</p>
+      {% if users %}
+      {% for person in users %}
+      <div class="users">
+        <h3><a style="color: #FED401;" href="{% url 'users_profile' person.user.id %}">{{person.user.profile.first_name}}</a></h3>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
