@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container-fluid home">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h1 class="text-center">Welcome To Our Neighborhoods</h1>
+      {% if neighborhoods %}
+      {% for neighborhood in neighborhoods %}
+      <div class="neighborhood">
+        <h2>{{neighborhood.name}}</h2>
+        <div class="neighbor-img">
+          <img src="{{neighborhood.image.url}}" class="img-fluid" alt="Responsive image">
+        </div>
+        <p>{{neighborhood.description}}</p>
+        {% if request.user.profile.neighborhood == neighborhood %}
+        <a  href="{% url 'neighborhood' user.profile.neighborhood.id %}"><button class="btn btn-success button-action">Check my Neighborhood</button></a>
+        <a href="{% url 'leave_neighborhood' neighborhood.id %}" class="btn btn-outline-danger button-action">Leave {{neighborhood.name}} Neighborhood</a>
+        {% elif not request.user.profile.neighborhood %}
+        <a  href="{% url 'choose_neighborhood' neighborhood.id %}" class="btn btn-success button-action">Move into {{neighborhood.name}} Neighborhood</a>
+        {% endif %}
+        {% if neighborhood.admin.user.username == current_user.username %}
+        <div class="">
+          <a href="{% url 'update_neighborhood' neighborhood.id %}" class="btn btn-success">Update</a>
+          <a href="{% url 'delete_neighborhood' neighborhood.id %}" class="btn  btn-danger">Delete</a>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+      <div class="col-md-3"></div>
+  </div>
+</div>
+{% endblock %}
