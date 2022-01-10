@@ -1,29 +1,28 @@
 # Neighborhood_news
-This is a web application that allows you to be in the loop about everything happening in your neighborhood
-# PROJECT POST
 ## Author
 by [MESHACK KIMUTAI](https://github.com/kimutaimeshack?tab=repositories)
 *********
 ## Description
 <table>
 <tr>
-<td>The application will allow a user to post a project he/she has created and get it reviewed,search project and allow for comments.It is built with Django python framework.
+<td>This is a web application that allows you to be in the loop about everything happening in your neighborhood. It is built with Django python framework.
 </td>
 </tr>
 </table>
 
 
 ### User story
-* View posted projects and their details
-* Post a project to be rated/reviewed
-* Rate/ review other users' projects
-* Search for projects 
-* View projects overall score
-* View my profile page
+* Sign in with the application to start using.
+* Set up a profile about me and a general location and my neighborhood name.
+* Find a list of different businesses in my neighborhood.
+* Find Contact Information for the health department and Police authorities near my neighborhood.
+* Create Posts that will be visible to everyone in my neighborhood.
+* Change My neighborhood when I decide to move out.
+* Only view details of a single neighborhood
 
 
 ### Live Site
-View [live](https://projectpost001.herokuapp.com/)
+View [live](https://myneighboorhood001.herokuapp.com/accounts/login/?next=/)
 
 ### Prerequisites
 * Python 3
