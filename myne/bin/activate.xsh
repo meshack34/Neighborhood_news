@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/home/moringa/Desktop/Django/ip4/myne"
+$VIRTUAL_ENV = r"/home/moringa/Desktop/Django/ss/ip4/myne"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]
